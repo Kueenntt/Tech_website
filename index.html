@@ -8,6 +8,42 @@
 
     <style>
 
+/* Add subtle image zoom and shadow on hover */
+.image-box img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.image-box img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Change heading color and underline on hover */
+h2 {
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+h2:hover {
+    color: #007acc;
+    border-bottom-color: #007acc;
+}
+
+/* Slightly lift and change background color of container on hover */
+.container {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.container:hover {
+    background-color: #e6f7ff;
+    transform: translateY(-5px);
+}
+
+/* Bold and color change paragraph text on hover */
+p {
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+p:hover {
+    color: #333;
+    font-weight: bold;
+}
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f8ff;
