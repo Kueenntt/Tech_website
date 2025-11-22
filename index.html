@@ -1,181 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Basketball Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basketball Site – Apple‑Style Layout</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+    }
 
-    <style>
-        /* BODY AND FONT */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background-color: black;
-            color: white;
-        }
+    /* Container that holds all sections */
+    .container {
+      scroll-snap-type: y mandatory;
+      height: 100%;
+      overflow-y: scroll;
+    }
 
-        /* HEADER */
-        header {
-            height: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 3px solid orange;
-        }
+    /* Each section is a “snap point” */
+    section {
+      scroll-snap-align: start;
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      padding: 80px 60px;
+      display: flex;
+      align-items: center;
+      /* background for sections */
+      background-color: #111;
+      overflow: hidden;
+    }
 
-        header h1 {
-            color: orange;
-            font-size: 40px;
-        }
+    /* Navigation on right fixed */
+    nav {
+      position: fixed;
+      top: 50%;
+      right: 40px;
+      transform: translateY(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+    }
+    nav a {
+      color: rgba(255, 165, 0, 0.8);
+      text-decoration: none;
+      margin: 12px 0;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+    nav a:hover, nav a:focus {
+      color: orange;
+    }
 
-        /* NAVIGATION LINKS (RIGHT SIDE) */
-        nav {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            z-index: 1000;
-        }
+    /* Content inside each section */
+    .content {
+      max-width: 700px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
 
-        nav a {
-            color: orange;
-            text-decoration: none;
-            margin: 15px 0;
-            font-size: 22px;
-            transition: 0.3s;
-            text-align: right;
-        }
+    /* When section is in view — using :target for nav-linked or scroll — we animate in */
+    section:target .content,
+    section.in-view .content {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        nav a:hover {
-            color: white;
-        }
+    /* Title style */
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: orange;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
 
-        /* ALL SECTIONS FULLSCREEN */
-        .section {
-            display: none; /* hidden by default */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 60px 80px 40px 40px; /* text inside with left padding */
-            background-color: #111;
-            overflow-y: auto; /* allow scrolling if content too big */
-            box-sizing: border-box;
+    /* Image styling inside content */
+    .content img {
+      max-width: 100%;
+      border: 2px solid orange;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
 
-            opacity: 0;
-            transform: translateX(40px);
-            transition: all 0.7s ease;
-        }
+    /* Video frame styling */
+    .video-box {
+      margin-top: 30px;
+    }
+    .video-box iframe {
+      width: 100%;
+      height: 360px;
+      border: 2px solid orange;
+      border-radius: 10px;
+    }
 
-        /* SHOW TARGETED SECTION */
-        .section:target {
-            display: block;
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* HOME VISIBLE BY DEFAULT */
-        #home {
-            display: block;
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* HIDE HOME WHEN ANY OTHER TARGET */
-        body:has(:target:not(#home)) #home {
-            display: none;
-        }
-
-        /* HEADINGS */
-        h2 {
-            color: orange;
-            margin-top: 0;
-        }
-
-        /* IMAGES */
-        .section img {
-            max-width: 60%;
-            height: auto;
-            margin: 20px 0;
-            border: 2px solid orange;
-            border-radius: 8px;
-        }
-
-        /* YOUTUBE VIDEOS */
-        iframe {
-            width: 60%;
-            height: 300px;
-            border: 2px solid orange;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        /* SCROLLBAR FOR SECTIONS */
-        .section::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .section::-webkit-scrollbar-thumb {
-            background-color: orange;
-            border-radius: 4px;
-        }
-
-    </style>
+    /* Intersection Observer fallback: highlight current section nav link */
+    /* Not using JS, but we can style :target link to be bold/color */
+    nav a:focus, nav a:hover {
+      /* already handled above */
+    }
+  </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Basketball</h1>
-    </header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#game">The Game</a>
+    <a href="#players">Players</a>
+    <a href="#about">About Me</a>
+  </nav>
 
-    <!-- NAVIGATION (RIGHT SIDE) -->
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#game">The Game</a>
-        <a href="#players">Players</a>
-        <a href="#about">About Me</a>
-    </nav>
-
-    <!-- HOME SECTION -->
-    <div class="section" id="home">
+  <div class="container">
+    <!-- HOME -->
+    <section id="home">
+      <div class="content">
         <h2>Home</h2>
-        <p>Welcome to my basketball website. Use the navigation on the right to explore different pages.</p>
-        <img src="IMAGE-LINK-HERE" alt="Basketball">
-        <p>Suggested video: Introduction to basketball</p>
-        <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-    </div>
+        <p>Welcome to my basketball website. This is a place to explore the sport’s energy, the players, and why I love it.</p>
+        <img src="IMAGE‑LINK‑HERE" alt="Basketball hero image">
+        <div class="video-box">
+          <p>Suggested video: Introduction to Basketball</p>
+          <iframe src="VIDEO‑LINK‑HERE" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
 
     <!-- GAME SECTION -->
-    <div class="section" id="game">
+    <section id="game">
+      <div class="content">
         <h2>The Game</h2>
-        <p>Basketball is a fast-paced sport where teams try to score by shooting into the hoop.</p>
-        <img src="GAME-IMAGE-LINK-HERE" alt="Basketball game">
-        <p>Suggested video: Basketball rules explained</p>
-        <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-    </div>
+        <p>Basketball is a fast-paced, team sport where two sides compete to score by shooting a ball through a hoop.</p>
+        <img src="GAME‑IMAGE‑LINK‑HERE" alt="Basketball Court">
+        <div class="video-box">
+          <p>Suggested video: How the rules of basketball work</p>
+          <iframe src="VIDEO‑LINK‑HERE" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
 
     <!-- PLAYERS SECTION -->
-    <div class="section" id="players">
+    <section id="players">
+      <div class="content">
         <h2>Players</h2>
-        <p>Players practice shooting, dribbling, defense, and teamwork to improve their performance.</p>
-        <img src="PLAYER-IMAGE-LINK-HERE" alt="Basketball players">
-        <p>Suggested video: Player highlights</p>
-        <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-    </div>
+        <p>Players train hard — working on shooting, passing, dribbling, and defending. Their effort is what makes games exciting.</p>
+        <img src="PLAYER‑IMAGE‑LINK‑HERE" alt="Basketball players">
+        <div class="video-box">
+          <p>Suggested video: Player highlight reel</p>
+          <iframe src="VIDEO‑LINK‑HERE" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
 
     <!-- ABOUT ME SECTION -->
-    <div class="section" id="about">
+    <section id="about">
+      <div class="content">
         <h2>About Me</h2>
-        <p>I am a 9th grader who enjoys basketball and web design. This site was created using HTML and CSS only.</p>
-        <img src="YOUR-IMAGE-LINK-HERE" alt="About me">
-        <p>Suggested video: My favorite team or player</p>
-        <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-    </div>
+        <p>I'm a 9th grader who loves basketball and web design. This website is my way of sharing both passions.</p>
+        <img src="YOUR‑IMAGE‑LINK‑HERE" alt="About me">
+        <div class="video-box">
+          <p>Suggested video: My favorite team or player</p>
+          <iframe src="VIDEO‑LINK‑HERE" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // A little JavaScript to add a class "in-view" when a section scrolls into view,
+    // purely to trigger the CSS animation (fade + move).
+    // If you want absolutely **no JS**, you can remove this script; animations will rely on :target or when clicking nav.
+    document.addEventListener('scroll', function() {
+      document.querySelectorAll('section').forEach(function(section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+          section.classList.add('in-view');
+        } else {
+          section.classList.remove('in-view');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
