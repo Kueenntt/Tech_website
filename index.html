@@ -4,18 +4,20 @@
     <title>Basketball Website</title>
 
     <style>
-        body {
+        /* BODY AND FONT */
+        body, html {
             margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
             background-color: black;
             color: white;
-            font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
         }
 
-        /* HEADER AREA (unchanged, stays visible always) */
+        /* HEADER */
         header {
-            height: 200px;
-            background-color: #111;
+            height: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,75 +25,107 @@
         }
 
         header h1 {
-            font-size: 40px;
             color: orange;
+            font-size: 40px;
         }
 
-        /* NAV BAR (text only – no background) */
+        /* NAVIGATION LINKS (RIGHT SIDE) */
         nav {
-            text-align: center;
-            padding: 15px;
-            position: sticky;
-            top: 0;
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
         }
 
         nav a {
             color: orange;
             text-decoration: none;
-            margin: 20px;
-            font-size: 20px;
+            margin: 15px 0;
+            font-size: 22px;
             transition: 0.3s;
+            text-align: right;
         }
 
         nav a:hover {
             color: white;
         }
 
-        /* ALL SECTIONS HIDDEN BY DEFAULT */
+        /* ALL SECTIONS FULLSCREEN */
         .section {
-            display: none; /* IMPORTANT: hides everything at first */
-            max-width: 700px;
-            margin: 40px 0 0 40px; /* pushed to the left side */
-            padding: 20px;
-            border-left: 5px solid orange;
+            display: none; /* hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 60px 80px 40px 40px; /* text inside with left padding */
+            background-color: #111;
+            overflow-y: auto; /* allow scrolling if content too big */
+            box-sizing: border-box;
 
             opacity: 0;
-            transform: translateX(30px);
+            transform: translateX(40px);
             transition: all 0.7s ease;
         }
 
-        /* SHOW ONLY THE SECTION THAT IS TARGETED */
+        /* SHOW TARGETED SECTION */
         .section:target {
             display: block;
             opacity: 1;
             transform: translateX(0);
         }
 
-        /* HOME IS VISIBLE BY DEFAULT */
+        /* HOME VISIBLE BY DEFAULT */
         #home {
             display: block;
             opacity: 1;
             transform: translateX(0);
         }
 
-        /* IMAGE STYLE */
-        .section img {
-            width: 100%;
-            border: 2px solid orange;
-            border-radius: 8px;
-            margin-bottom: 15px;
+        /* HIDE HOME WHEN ANY OTHER TARGET */
+        body:has(:target:not(#home)) #home {
+            display: none;
         }
 
-        /* VIDEO BOX */
+        /* HEADINGS */
+        h2 {
+            color: orange;
+            margin-top: 0;
+        }
+
+        /* IMAGES */
+        .section img {
+            max-width: 60%;
+            height: auto;
+            margin: 20px 0;
+            border: 2px solid orange;
+            border-radius: 8px;
+        }
+
+        /* YOUTUBE VIDEOS */
         iframe {
-            width: 100%;
+            width: 60%;
             height: 300px;
             border: 2px solid orange;
             border-radius: 8px;
+            margin: 20px 0;
         }
+
+        /* SCROLLBAR FOR SECTIONS */
+        .section::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .section::-webkit-scrollbar-thumb {
+            background-color: orange;
+            border-radius: 4px;
+        }
+
     </style>
 </head>
-
 <body>
 
     <!-- HEADER -->
@@ -99,7 +133,7 @@
         <h1>Basketball</h1>
     </header>
 
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION (RIGHT SIDE) -->
     <nav>
         <a href="#home">Home</a>
         <a href="#game">The Game</a>
@@ -110,37 +144,37 @@
     <!-- HOME SECTION -->
     <div class="section" id="home">
         <h2>Home</h2>
-        <img src="IMAGE-LINK-HERE" alt="">
-        <p>Welcome to my basketball website. Select a page from the navigation bar.</p>
+        <p>Welcome to my basketball website. Use the navigation on the right to explore different pages.</p>
+        <img src="IMAGE-LINK-HERE" alt="Basketball">
         <p>Suggested video: Introduction to basketball</p>
-        <iframe src="VIDEO-LINK-HERE"></iframe>
+        <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
     </div>
 
     <!-- GAME SECTION -->
     <div class="section" id="game">
         <h2>The Game</h2>
-        <img src="GAME-IMAGE-LINK-HERE" alt="">
-        <p>Basketball is played by two teams trying to score by putting the ball through the hoop.</p>
+        <p>Basketball is a fast-paced sport where teams try to score by shooting into the hoop.</p>
+        <img src="GAME-IMAGE-LINK-HERE" alt="Basketball game">
         <p>Suggested video: Basketball rules explained</p>
-        <iframe src="VIDEO-LINK-HERE"></iframe>
+        <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
     </div>
 
     <!-- PLAYERS SECTION -->
     <div class="section" id="players">
         <h2>Players</h2>
-        <img src="PLAYER-IMAGE-LINK-HERE" alt="">
-        <p>Players train hard to improve their skills and teamwork.</p>
+        <p>Players practice shooting, dribbling, defense, and teamwork to improve their performance.</p>
+        <img src="PLAYER-IMAGE-LINK-HERE" alt="Basketball players">
         <p>Suggested video: Player highlights</p>
-        <iframe src="VIDEO-LINK-HERE"></iframe>
+        <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
     </div>
 
     <!-- ABOUT ME SECTION -->
     <div class="section" id="about">
         <h2>About Me</h2>
-        <img src="YOUR-IMAGE-LINK-HERE" alt="">
-        <p>I am a 9th grader who enjoys basketball and web design. This website was made using simple HTML and CSS only.</p>
+        <p>I am a 9th grader who enjoys basketball and web design. This site was created using HTML and CSS only.</p>
+        <img src="YOUR-IMAGE-LINK-HERE" alt="About me">
         <p>Suggested video: My favorite team or player</p>
-        <iframe src="VIDEO-LINK-HERE"></iframe>
+        <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
     </div>
 
 </body>
