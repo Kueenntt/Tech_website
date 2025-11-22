@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hoops</title>
+    <title>Hoops - The Basketball Experience</title>
     <link rel="icon" href="favicon.ico" />
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', Arial, sans-serif; /* Adjusted font for a slightly modern feel */
             background-color: #f0f8ff;
             margin: 0;
-            padding: 20px;
+            padding: 0; /* Removed padding here, added to container */
         }
 
         .container {
@@ -24,9 +24,44 @@
         }
 
         h1 {
-            color: #333;
+            color: #1a1a1a;
             text-align: center;
+            padding-top: 20px;
         }
+
+        /* --- Navigation Bar CSS --- */
+        nav {
+            background-color: #007acc; /* Blue theme */
+            padding: 10px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            max-width: 800px;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 5px 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #005699; /* Darker blue on hover */
+            transform: translateY(-1px);
+        }
+        /* --- End Navigation Bar CSS --- */
 
         /* For headings */
         h2 {
@@ -34,10 +69,17 @@
             border-bottom: 2px solid #ddd;
             padding-bottom: 5px;
             transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            scroll-margin-top: 80px; /* Offset for fixed header/nav */
         }
         h2:hover {
             color: #007acc;
             border-bottom-color: #007acc;
+        }
+
+        h3 {
+             color: #007acc;
+             margin-top: 5px;
+             margin-bottom: 5px;
         }
 
         p {
@@ -49,14 +91,17 @@
             display: flex;
             justify-content: space-around;
             margin: 20px 0;
+            flex-wrap: wrap; /* Added for responsiveness */
+            gap: 20px;
         }
 
         .image-box {
-            width: 45%;
+            width: 100%; /* Default for mobile */
+            max-width: 350px;
             text-align: center;
         }
 
-        .image-box img {
+        .image-box img, .image-box iframe {
             width: 100%;
             height: 250px;
             object-fit: cover;
@@ -75,80 +120,254 @@
         }
 
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            padding-top: 20px;
         }
 
         .highlight {
             background-color: #e6f7ff;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 5px solid #007acc;
+            font-style: italic;
         }
+        .highlight strong {
+            color: #005699;
+        }
+
+        /* Responsive adjustments for tablet/desktop */
+        @media (min-width: 600px) {
+            .image-box {
+                width: 45%;
+            }
+            /* Specific styles for the video and text layout for larger screens */
+            .video-container {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                flex-wrap: nowrap !important;
+            }
+            .video-container .image-box:first-child {
+                flex: 1.5;
+                min-width: 300px;
+            }
+            .video-container .image-box:last-child {
+                flex: 1;
+                padding-left: 10px;
+                text-align: left;
+                align-self: stretch;
+            }
+        }
+        /* Mobile specific adjustments for video block */
+        @media (max-width: 599px) {
+            .video-container .image-box:first-child {
+                order: 2; /* Move video to the bottom */
+                max-width: 100%;
+            }
+            .video-container .image-box:last-child {
+                order: 1; /* Move text to the top */
+                padding-left: 0;
+                max-width: 100%;
+            }
+        }
+
     </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#game">THE GAME</a></li>
+            <li><a href="#players">THE PLAYERS</a></li>
+            <li><a href="#experience">THE EXPERIENCE</a></li>
+        </ul>
+    </nav>
+    
     <div class="container">
-        <h1>Basketball</h1>
+        <h1>Basketball - Global Phenomenon</h1>
         
-        <div class="section">
-            <h2>Theory</h2>
-            <p>Basketball is a fast-paced sport that combines strategy, skill, and teamwork. Understanding basketball theory involves studying offensive and defensive systems, player positioning, and court spacing to maximize efficiency. Coaches emphasize concepts like pick-and-roll execution, zone versus man-to-man defense, and ball movement to create scoring opportunities. By analyzing game situations and player tendencies, athletes can make smarter decisions, improve their situational awareness, and enhance overall team performance. Integrating theory with practice allows players to anticipate opponents’ moves, maintain optimal spacing, and execute plays with precision, elevating both individual and team performance on the court.</p>
-        </div>
-        
-        <div class="image-container">
-            <div class="image-box">
-                <img src="https://i.pinimg.com/736x/c6/4c/90/c64c900fbbf552ca846c7d64733f24d2.jpg" alt="Leonard" />
-                <p>“Calm, Cool, Leonard”</p>
+        <!-- ============================================== -->
+        <!-- 1. The Game -->
+        <!-- ============================================== -->
+        <div class="section" id="game">
+            <h2>The Game: Feel the Energy. Live the Action.</h2>
+            <div class="highlight">
+                <p><strong>Tagline:</strong> Feel the energy. Live the action.</p>
             </div>
-            <div class="image-box">
-                <img src="https://i.pinimg.com/736x/a0/7e/15/a07e15fd5c55a450aca36ad73b030451.jpg" alt="Kobe" />
-                <p>“Mamba Mentality”</p>
-            </div>
-        </div>
+            
+            <h3>Overview & Thrill Factor</h3>
+            <p>Basketball is a fast-paced, high-octane sport that combines strategy, skill, and teamwork. Its global popularity stems from the relentless speed, dramatic shifts in momentum, and the pure excitement of watching incredible athletes execute buzzer-beaters and gravity-defying dunks. Every possession is a battle, making it one of the most thrilling team sports in the world.</p>
+            
+            <h3>Rules & Positions</h3>
+            <!-- Existing "Theory" content adapted here -->
+            <p>Understanding basketball theory involves studying offensive and defensive systems, player positioning, and court spacing to maximize efficiency. Integrating theory with practice allows players to anticipate opponents’ moves and execute plays with precision. The core rules involve scoring (2- and 3-point shots, 1-point free throws) and basic violations like traveling and double-dribbling.</p>
 
-        <div class="section">
-            <h2>Positions</h2>
-        </div>
+            <!-- Existing "Positions" content adapted here -->
+            <h3 style="margin-top: 20px;">The Five Key Roles</h3>
+            <p>Basketball consists of five main positions, each vital to team success. The **Point Guard** is the playmaker, the **Shooting Guard** is a primary scorer, the **Small Forward** is versatile, the **Power Forward** plays physically near the basket, and the **Center** anchors the defense. This structure highlights the unique skills and roles of every player on the court.</p>
 
-        <div class="image-container">
-            <div class="image-box">
-                <img src="https://i.pinimg.com/1200x/72/c9/34/72c93429fd295187fdabce3cb2af65c5.jpg" alt="basketball positions" />
-                <p>“Point Maestro”</p>
-            </div>
-            <div class="image-box">
-                <img src="https://lh7-us.googleusercontent.com/6tCP_EpBRmilO6tsFOl7JDe1SzV-L1oAsHXaFSRyqUneH2lZA-zRRqPil_eYC4cNbiusVMaEl2X0hSLkgK-S0jBvOaIxXmOYcuwXEv_mBKNRWy86S2SPuzakn04Ym7-PM4i1uKdw5cLC9VD3jRAwoOuJ5UqZy2kO6JGJirabWoS3ooELaJNDjXE54eAb4b7y" alt="Baske" />
-                <p>“Court General”</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <p>Basketball consists of five main positions, each vital to team success. The point guard is the playmaker, managing the offense with quick decisions and precise passes. The shooting guard is a primary scorer, often excelling at long-range shots. The small forward is versatile, capable of scoring, defending, and rebounding. The power forward plays physically near the basket, focusing on rebounds and inside scoring. Lastly, the center anchors the defense, protecting the rim and securing rebounds. Each position complements the others, creating a balanced, dynamic team strategy essential for winning games. This structure highlights the unique skills and roles of every player on the court</p>
-        </div>
-
-        <hr style="margin: 30px 0; border: 0; border-top: 2px solid #ddd;" />
-
-        <div class="image-container" style="display: flex; gap: 20px;">
-            <div class="image-box" style="flex: 1.5; display: flex; justify-content: flex-end;">
-                <iframe
-                    width="570"
-                    height="290"
-                    style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.16);"
-                    src="https://www.youtube.com/embed/aSqeWUuQSlM"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <div class="image-box" style="flex: 1; padding-left: 10px; display: flex; align-items: center;">
-                <div>
-                    <h2>Watch Basketball Basics With Kobe!</h2>
-                    <p>Kobe Bryant teaches shooting, grip, balance, and footwork, plus ways to stay focused during games.</p>
+            <div class="image-container">
+                <div class="image-box">
+                    <img src="https://i.pinimg.com/1200x/72/c9/34/72c93429fd295187fdabce3cb2af65c5.jpg" alt="basketball positions" />
+                    <p>“Point Maestro” (Diagram of Player Positions)</p>
+                </div>
+                <div class="image-box">
+                    <img src="https://lh7-us.googleusercontent.com/6tCP_EpBRmilO6tsFOl7JDe1SzV-L1oAsHXaFSRyqUneH2lZA-zRRqPil_eYC4cNbiusVMaEl2X0hSLkgK-S0jBvOaIxXmOYcuwXEv_mBKNRWy86S2SPuzakn04Ym7-PM4i1uKdw5cLC9VD3jRAwoOuJ5UqZy2kO6JGJirabWoS3ooELaJNDjXE54eAb4b7y" alt="Court Diagram" />
+                    <p>“Court General” (The Court Layout)</p>
                 </div>
             </div>
+
+            <!-- New Video: High-Energy Plays -->
+            <div class="image-container video-container">
+                <div class="image-box">
+                    <iframe
+                        width="100%"
+                        height="290"
+                        style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.16);"
+                        src="https://www.youtube.com/embed/Y00n4486D3Y"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="image-box" style="padding-left: 10px; display: flex; align-items: center;">
+                    <div>
+                        <h3>Watch: Top 10 Buzzer-Beaters!</h3>
+                        <p>Experience the most dramatic moments in basketball history. From half-court heaves to clutch layups, this video shows the ultimate thrill factor of the game.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <hr style="margin: 30px 0; border: 0; border-top: 2px solid #ddd;" />
+
+        <!-- ============================================== -->
+        <!-- 2. The Players -->
+        <!-- ============================================== -->
+        <div class="section" id="players">
+            <h2>The Players: Champions are Made, Not Born.</h2>
+            <div class="highlight">
+                <p><strong>Tagline:</strong> Champions are made, not born.</p>
+            </div>
+
+            <h3>Legends and Role Models</h3>
+            <p>Basketball legends are defined by more than just statistics; they represent dedication, leadership, and a relentless pursuit of excellence. From the defensive genius of Leonard to the fierce competitive spirit of Kobe, these players set the standard for the next generation. Their stories of overcoming adversity behind the scenes inspire millions.</p>
+            
+            <div class="image-container">
+                <!-- Existing images -->
+                <div class="image-box">
+                    <img src="https://i.pinimg.com/736x/c6/4c/90/c64c900fbbf552ca846c7d64733f24d2.jpg" alt="Leonard" />
+                    <p>“Calm, Cool, Leonard” (The Quiet Leader)</p>
+                </div>
+                <div class="image-box">
+                    <img src="https://i.pinimg.com/736x/a0/7e/15/a07e15fd5c55a450aca36ad73b030451.jpg" alt="Kobe" />
+                    <p>“Mamba Mentality” (Relentless Drive)</p>
+                </div>
+            </div>
+
+            <h3>Training, Grit, and Skills Spotlight</h3>
+            <p>The mastery seen on the court is the result of thousands of hours of intense training. Skills like precision shooting, dynamic defense, and advanced ball-handling require extreme discipline. This dedication to craft is the true core of a player's greatness.</p>
+            
+            <!-- Existing Kobe Video adapted here -->
+            <div class="image-container video-container">
+                <div class="image-box">
+                    <iframe
+                        width="100%"
+                        height="290"
+                        style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.16);"
+                        src="https://www.youtube.com/embed/aSqeWUuQSlM"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="image-box" style="padding-left: 10px; display: flex; align-items: center;">
+                    <div>
+                        <h3>Kobe on Shooting & Footwork</h3>
+                        <p>Kobe Bryant teaches essential skills like grip, balance, and footwork, plus effective ways to maintain focus during high-pressure games. A must-watch for aspiring players!</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;">Mastering the Ball</h3>
+
+            <!-- New Video: Ball Handling Drills -->
+            <div class="image-container video-container">
+                <div class="image-box" style="padding-right: 10px; display: flex; align-items: center;">
+                    <div>
+                        <h3>Dribbling Drills for Beginners</h3>
+                        <p>Develop elite ball-handling skills with these fundamental drills. Focus on fingertip control, speed, and changing directions to break down defenses.</p>
+                    </div>
+                </div>
+                 <div class="image-box">
+                    <iframe
+                        width="100%"
+                        height="290"
+                        style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.16);"
+                        src="https://www.youtube.com/embed/E-Y_Yh8Q-hM"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 2px solid #ddd;" />
+
+        <!-- ============================================== -->
+        <!-- 3. The Experience -->
+        <!-- ============================================== -->
+        <div class="section" id="experience">
+            <h2>The Experience: Be Part of Something Bigger.</h2>
+            <div class="highlight">
+                <p><strong>Tagline:</strong> Be part of something bigger.</p>
+            </div>
+
+            <h3>Crowd, Intensity, and Atmosphere</h3>
+            <p>There is nothing quite like the collective roar of a packed stadium. The experience of a live basketball game is a sensory overload: the thud of the ball, the squeak of sneakers, the blaring music, and the collective intensity of thousands of cheering fans. It’s an electrifying environment that turns casual watching into a shared, unforgettable moment.</p>
+
+            <!-- New Video: Crowd Atmosphere -->
+            <div class="image-container video-container">
+                <div class="image-box">
+                    <iframe
+                        width="100%"
+                        height="290"
+                        style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.16);"
+                        src="https://www.youtube.com/embed/5U2-984_F7g"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="image-box" style="padding-left: 10px; display: flex; align-items: center;">
+                    <div>
+                        <h3>The Roar of the Crowd</h3>
+                        <p>Watch how the energy of the fans can change the entire momentum of a game. This is the atmosphere that defines basketball culture.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;">Community and Engagement</h3>
+            <p>Beyond the professional leagues, basketball thrives on community. Local leagues, youth programs, and pickup games provide a venue for players of all ages and skill levels to engage, learn, and build lasting friendships. It’s a sport that connects neighborhoods and cultures globally.</p>
+
+            <h3 style="margin-top: 30px;">Interactive Elements & Gear</h3>
+            <p>Ready to get involved? Find local leagues in your area, shop for the latest jerseys and gear, or check event schedules for upcoming games. The basketball community is always welcoming new members.</p>
+            <div class="highlight">
+                <p><strong>Next Steps:</strong> Join a local league, get your favorite player's jersey, or buy tickets for the next big game!</p>
+            </div>
+
+        </div>
+        
+        <hr style="margin: 30px 0; border: 0; border-top: 2px solid #ddd;" />
+        <footer style="text-align: center; color: #aaa; padding-bottom: 20px;">
+            &copy; 2024 Hoops Fan Site. All rights reserved.
+        </footer>
     </div>
 </body>
 </html>
