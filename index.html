@@ -4,109 +4,90 @@
     <title>Basketball Website</title>
 
     <style>
-        /* MAIN PAGE STYLE */
         body {
             margin: 0;
-            background-color: black; /* full black background */
+            background-color: black;
             color: white;
             font-family: Arial, sans-serif;
             scroll-behavior: smooth;
         }
 
-        /* HEADER BANNER MOVED TO THE RIGHT */
+        /* HEADER AREA (unchanged, stays visible always) */
         header {
             height: 200px;
             background-color: #111;
             display: flex;
-            justify-content: flex-end; /* banner text pushed right */
+            justify-content: center;
             align-items: center;
-            padding-right: 40px;
             border-bottom: 3px solid orange;
         }
 
         header h1 {
-            font-size: 45px;
+            font-size: 40px;
             color: orange;
-            text-shadow: 3px 3px 10px black;
         }
 
-        /* NAVIGATION BAR */
+        /* NAV BAR (text only – no background) */
         nav {
-            background-color: #222;
-            padding: 12px;
             text-align: center;
+            padding: 15px;
             position: sticky;
             top: 0;
-            border-bottom: 2px solid orange;
         }
 
         nav a {
-            color: white;
+            color: orange;
             text-decoration: none;
             margin: 20px;
-            font-size: 18px;
-            padding: 6px 12px;
-            border-radius: 4px;
+            font-size: 20px;
             transition: 0.3s;
         }
 
         nav a:hover {
-            background-color: orange;
-            color: black;
+            color: white;
         }
 
-        /* SECTION CONTAINER STYLE */
+        /* ALL SECTIONS HIDDEN BY DEFAULT */
         .section {
-            max-width: 850px;
-            margin: 60px auto;
-            background-color: #151515;
-            padding: 40px;
-            border-radius: 10px;
-            border-left: 6px solid orange;
+            display: none; /* IMPORTANT: hides everything at first */
+            max-width: 700px;
+            margin: 40px 0 0 40px; /* pushed to the left side */
+            padding: 20px;
+            border-left: 5px solid orange;
 
-            opacity: 0; /* fade-in starting state */
-            transform: translateX(40px); /* slide from right */
+            opacity: 0;
+            transform: translateX(30px);
             transition: all 0.7s ease;
         }
 
-        /* WHEN A SECTION IS NAVIGATED TO */
+        /* SHOW ONLY THE SECTION THAT IS TARGETED */
         .section:target {
+            display: block;
             opacity: 1;
             transform: translateX(0);
         }
 
-        /* HOME SECTION VISIBLE BY DEFAULT */
+        /* HOME IS VISIBLE BY DEFAULT */
         #home {
+            display: block;
             opacity: 1;
             transform: translateX(0);
         }
 
-        /* SECTION TITLES */
-        h2 {
-            color: orange;
-            margin-top: 0;
-        }
-
-        /* IMAGE STYLING */
+        /* IMAGE STYLE */
         .section img {
             width: 100%;
-            max-height: 260px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 15px 0;
             border: 2px solid orange;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
-        /* VIDEO FRAME */
-        .video-box {
-            margin-top: 20px;
-        }
-
-        .video-box iframe {
+        /* VIDEO BOX */
+        iframe {
             width: 100%;
-            height: 315px;
+            height: 300px;
             border: 2px solid orange;
-            border-radius: 10px;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -129,57 +110,37 @@
     <!-- HOME SECTION -->
     <div class="section" id="home">
         <h2>Home</h2>
-
-        <img src="IMAGE-LINK-HERE" alt="Home section image">
-
-        <p>Welcome to my basketball website. This site explains the game, the players, and what makes basketball exciting.</p>
-
-        <div class="video-box">
-            <p>Suggested video: Introduction to basketball basics</p>
-            <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-        </div>
+        <img src="IMAGE-LINK-HERE" alt="">
+        <p>Welcome to my basketball website. Select a page from the navigation bar.</p>
+        <p>Suggested video: Introduction to basketball</p>
+        <iframe src="VIDEO-LINK-HERE"></iframe>
     </div>
 
     <!-- GAME SECTION -->
     <div class="section" id="game">
         <h2>The Game</h2>
-
-        <img src="GAME-IMAGE-LINK-HERE" alt="Basketball court">
-
-        <p>Basketball is played by two teams trying to score by shooting the ball into a hoop. It is a fast game that requires coordination and teamwork.</p>
-
-        <div class="video-box">
-            <p>Suggested video: How basketball rules work</p>
-            <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-        </div>
+        <img src="GAME-IMAGE-LINK-HERE" alt="">
+        <p>Basketball is played by two teams trying to score by putting the ball through the hoop.</p>
+        <p>Suggested video: Basketball rules explained</p>
+        <iframe src="VIDEO-LINK-HERE"></iframe>
     </div>
 
     <!-- PLAYERS SECTION -->
     <div class="section" id="players">
         <h2>Players</h2>
-
-        <img src="PLAYER-IMAGE-LINK-HERE" alt="Basketball players">
-
-        <p>Players train to improve their shooting, passing, dribbling, and defense. Their dedication makes the sport exciting to watch.</p>
-
-        <div class="video-box">
-            <p>Suggested video: Best players and highlight mixes</p>
-            <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-        </div>
+        <img src="PLAYER-IMAGE-LINK-HERE" alt="">
+        <p>Players train hard to improve their skills and teamwork.</p>
+        <p>Suggested video: Player highlights</p>
+        <iframe src="VIDEO-LINK-HERE"></iframe>
     </div>
 
     <!-- ABOUT ME SECTION -->
     <div class="section" id="about">
         <h2>About Me</h2>
-
-        <img src="YOUR-IMAGE-LINK-HERE" alt="About me image">
-
-        <p>I am a 9th grader who enjoys basketball and web design. I created this website to share my interest in the sport and practice simple HTML and CSS.</p>
-
-        <div class="video-box">
-            <p>Suggested video: Your favorite team or player</p>
-            <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-        </div>
+        <img src="YOUR-IMAGE-LINK-HERE" alt="">
+        <p>I am a 9th grader who enjoys basketball and web design. This website was made using simple HTML and CSS only.</p>
+        <p>Suggested video: My favorite team or player</p>
+        <iframe src="VIDEO-LINK-HERE"></iframe>
     </div>
 
 </body>
