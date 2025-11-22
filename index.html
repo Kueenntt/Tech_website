@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Basketball Website</title>
   <style>
-    body {
+    /* BASIC RESET */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
       font-family: Arial, sans-serif;
       background-color: black;
       color: white;
+      scroll-behavior: smooth;
     }
 
     /* NAVIGATION FIXED ON RIGHT */
@@ -18,25 +27,24 @@
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
+      z-index: 10;
     }
 
-    /* NAV LINKS */
     nav a {
       color: orange;
       text-decoration: none;
       margin: 12px 0;
       font-size: 22px;
       position: relative;
-      transition: all 0.3s ease; /* smooth transition */
+      transition: all 0.3s ease;
     }
 
     /* HOVER EFFECT */
     nav a:hover {
       color: white;
-      transform: translateX(-10px); /* move a little to the left */
+      transform: translateX(-10px);
     }
 
-    /* OPTIONAL: underline animation */
     nav a::after {
       content: '';
       display: block;
@@ -46,8 +54,67 @@
       transition: width 0.3s;
     }
     nav a:hover::after {
-      width: 100%; /* underline grows on hover */
+      width: 100%;
     }
+
+    /* SECTIONS */
+    section {
+      min-height: 100vh;
+      padding: 60px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start; /* content on left */
+      background-color: #111;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s ease;
+    }
+
+    /* DISPLAY SECTIONS WHEN TARGETED */
+    section:target {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* HOME VISIBLE BY DEFAULT */
+    #home {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    body:has(:target:not(#home)) #home {
+      opacity: 0;
+    }
+
+    /* HEADINGS AND TEXT */
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: orange;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    /* IMAGES */
+    img {
+      max-width: 60%;
+      border: 2px solid orange;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* VIDEO BOX */
+    iframe {
+      width: 60%;
+      height: 360px;
+      border: 2px solid orange;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
   </style>
 </head>
 <body>
@@ -60,21 +127,40 @@
     <a href="#about">About Me</a>
   </nav>
 
-  <!-- SIMPLE SECTIONS -->
-  <section id="home" style="height:100vh; padding:50px;">
-    <h1>Home</h1>
+  <!-- HOME SECTION -->
+  <section id="home">
+    <h2>Home</h2>
+    <p>Welcome to my basketball website. Explore the game, the players, and my passion for basketball.</p>
+    <img src="IMAGE-LINK-HERE" alt="Basketball action">
+    <p>Suggested video: Introduction to basketball</p>
+    <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
   </section>
 
-  <section id="game" style="height:100vh; padding:50px;">
-    <h1>The Game</h1>
+  <!-- GAME SECTION -->
+  <section id="game">
+    <h2>The Game</h2>
+    <p>Basketball is a fast-paced sport where two teams compete to score by shooting the ball into a hoop.</p>
+    <img src="GAME-IMAGE-LINK-HERE" alt="Basketball court">
+    <p>Suggested video: How the rules of basketball work</p>
+    <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
   </section>
 
-  <section id="players" style="height:100vh; padding:50px;">
-    <h1>Players</h1>
+  <!-- PLAYERS SECTION -->
+  <section id="players">
+    <h2>Players</h2>
+    <p>Players train to improve their shooting, passing, dribbling, and defense. Dedication makes the sport exciting to watch.</p>
+    <img src="PLAYER-IMAGE-LINK-HERE" alt="Basketball players">
+    <p>Suggested video: Player highlight reels</p>
+    <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
   </section>
 
-  <section id="about" style="height:100vh; padding:50px;">
-    <h1>About Me</h1>
+  <!-- ABOUT ME SECTION -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm a 9th grader who loves basketball and web design. I created this site using only HTML and CSS.</p>
+    <img src="YOUR-IMAGE-LINK-HERE" alt="About me">
+    <p>Suggested video: My favorite team or player</p>
+    <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
   </section>
 
 </body>
