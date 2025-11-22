@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hoops - The Basketball Experience</title>
+    <title>Hoops - The Basketball Experience (HTML & CSS Only)</title>
     <link rel="icon" href="favicon.ico" />
 
     <style>
+        /* CSS CORE: Defines the look and style */
         body {
-            font-family: 'Inter', Arial, sans-serif; /* Adjusted font for a slightly modern feel */
+            font-family: 'Inter', Arial, sans-serif;
             background-color: #f0f8ff;
             margin: 0;
-            padding: 0; /* Removed padding here, added to container */
+            /* Added padding-top to prevent the fixed nav bar from covering the content when jumping to an anchor */
+            padding-top: 55px; 
+            /* === NEW LINE FOR SMOOTH SCROLLING === */
+            scroll-behavior: smooth; 
         }
 
         .container {
@@ -29,12 +33,15 @@
             padding-top: 20px;
         }
 
-        /* --- Navigation Bar CSS --- */
+        /* --- Navigation Bar CSS (Pure CSS Sticky) --- */
         nav {
-            background-color: #007acc; /* Blue theme */
+            position: fixed; /* CSS: Makes the navigation bar sticky */
+            top: 0;          /* Sticks it to the top of the viewport */
+            width: 100%;     /* Full width */
+            z-index: 1000;   /* Ensures it stays above all other content */
+            background-color: #007acc; 
             padding: 10px 0;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         nav ul {
             list-style: none;
@@ -54,12 +61,11 @@
             font-weight: bold;
             padding: 8px 15px;
             border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.1s ease;
+            transition: background-color 0.3s ease;
             display: block;
         }
         nav ul li a:hover {
             background-color: #005699; /* Darker blue on hover */
-            transform: translateY(-1px);
         }
         /* --- End Navigation Bar CSS --- */
 
@@ -68,14 +74,8 @@
             color: #444;
             border-bottom: 2px solid #ddd;
             padding-bottom: 5px;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
-            scroll-margin-top: 80px; /* Offset for fixed header/nav */
+            scroll-margin-top: 75px; /* CSS trick to stop scroll right below the fixed nav */
         }
-        h2:hover {
-            color: #007acc;
-            border-bottom-color: #007acc;
-        }
-
         h3 {
              color: #007acc;
              margin-top: 5px;
@@ -91,7 +91,7 @@
             display: flex;
             justify-content: space-around;
             margin: 20px 0;
-            flex-wrap: wrap; /* Added for responsiveness */
+            flex-wrap: wrap; 
             gap: 20px;
         }
 
@@ -107,13 +107,8 @@
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .image-box img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
+        
         .image-box p {
             margin-top: 10px;
             font-weight: bold;
@@ -132,16 +127,12 @@
             border-left: 5px solid #007acc;
             font-style: italic;
         }
-        .highlight strong {
-            color: #005699;
-        }
 
         /* Responsive adjustments for tablet/desktop */
         @media (min-width: 600px) {
             .image-box {
                 width: 45%;
             }
-            /* Specific styles for the video and text layout for larger screens */
             .video-container {
                 display: flex;
                 gap: 20px;
@@ -162,11 +153,11 @@
         /* Mobile specific adjustments for video block */
         @media (max-width: 599px) {
             .video-container .image-box:first-child {
-                order: 2; /* Move video to the bottom */
+                order: 2;
                 max-width: 100%;
             }
             .video-container .image-box:last-child {
-                order: 1; /* Move text to the top */
+                order: 1; 
                 padding-left: 0;
                 max-width: 100%;
             }
@@ -175,8 +166,10 @@
     </style>
 </head>
 <body>
+    <!-- HTML Structure: Navigation Bar -->
     <nav>
         <ul>
+            <!-- Anchor links use the #id to jump to the corresponding section -->
             <li><a href="#game">THE GAME</a></li>
             <li><a href="#players">THE PLAYERS</a></li>
             <li><a href="#experience">THE EXPERIENCE</a></li>
@@ -190,6 +183,7 @@
         <!-- 1. The Game -->
         <!-- ============================================== -->
         <div class="section" id="game">
+            <!-- The ID attribute links to the navigation bar's href="#game" -->
             <h2>The Game: Feel the Energy. Live the Action.</h2>
             <div class="highlight">
                 <p><strong>Tagline:</strong> Feel the energy. Live the action.</p>
@@ -199,10 +193,8 @@
             <p>Basketball is a fast-paced, high-octane sport that combines strategy, skill, and teamwork. Its global popularity stems from the relentless speed, dramatic shifts in momentum, and the pure excitement of watching incredible athletes execute buzzer-beaters and gravity-defying dunks. Every possession is a battle, making it one of the most thrilling team sports in the world.</p>
             
             <h3>Rules & Positions</h3>
-            <!-- Existing "Theory" content adapted here -->
             <p>Understanding basketball theory involves studying offensive and defensive systems, player positioning, and court spacing to maximize efficiency. Integrating theory with practice allows players to anticipate opponents’ moves and execute plays with precision. The core rules involve scoring (2- and 3-point shots, 1-point free throws) and basic violations like traveling and double-dribbling.</p>
 
-            <!-- Existing "Positions" content adapted here -->
             <h3 style="margin-top: 20px;">The Five Key Roles</h3>
             <p>Basketball consists of five main positions, each vital to team success. The **Point Guard** is the playmaker, the **Shooting Guard** is a primary scorer, the **Small Forward** is versatile, the **Power Forward** plays physically near the basket, and the **Center** anchors the defense. This structure highlights the unique skills and roles of every player on the court.</p>
 
@@ -212,12 +204,12 @@
                     <p>“Point Maestro” (Diagram of Player Positions)</p>
                 </div>
                 <div class="image-box">
-                    <img src="https://lh7-us.googleusercontent.com/6tCP_EpBRmilO6tsFOl7JDe1SzV-L1oAsHXaFSRyqUneH2lZA-zRRqPil_eYC4cNbiusVMaEl2X0hSLkgK-S0jBvOaIxXmOYcuwXEv_mBKNRWy86S2SPuzakn04Ym7-PM4i1uKdw5cLC9VD3jRAwoOuJ5UqZy2kO6JGJirabWoS3ooELaJNDjXE54eAb4b7y" alt="Court Diagram" />
+                    <img src="https://lh7-us.googleusercontent.com/6tCP_EpBRmilO6tsFOl7JDe1SzV-L1oAsHXaFSRyqUneH2lZA-zRRqPil_eYC4cNbiusVMaEl2X0hSLkgK-S0jBvOaIxXOYcuwXEv_mBKNRWy86S2SPuzakn04Ym7-PM4i1uKdw5cLC9VD3jRAwoOuJ5UqZy2kO6JGJirabWoS3ooELaJNDjXE54eAb4b7y" alt="Court Diagram" />
                     <p>“Court General” (The Court Layout)</p>
                 </div>
             </div>
 
-            <!-- New Video: High-Energy Plays -->
+            <!-- Video: High-Energy Plays -->
             <div class="image-container video-container">
                 <div class="image-box">
                     <iframe
@@ -270,7 +262,7 @@
             <h3>Training, Grit, and Skills Spotlight</h3>
             <p>The mastery seen on the court is the result of thousands of hours of intense training. Skills like precision shooting, dynamic defense, and advanced ball-handling require extreme discipline. This dedication to craft is the true core of a player's greatness.</p>
             
-            <!-- Existing Kobe Video adapted here -->
+            <!-- Existing Kobe Video -->
             <div class="image-container video-container">
                 <div class="image-box">
                     <iframe
@@ -294,7 +286,7 @@
 
             <h3 style="margin-top: 30px;">Mastering the Ball</h3>
 
-            <!-- New Video: Ball Handling Drills -->
+            <!-- Video: Ball Handling Drills -->
             <div class="image-container video-container">
                 <div class="image-box" style="padding-right: 10px; display: flex; align-items: center;">
                     <div>
@@ -331,7 +323,7 @@
             <h3>Crowd, Intensity, and Atmosphere</h3>
             <p>There is nothing quite like the collective roar of a packed stadium. The experience of a live basketball game is a sensory overload: the thud of the ball, the squeak of sneakers, the blaring music, and the collective intensity of thousands of cheering fans. It’s an electrifying environment that turns casual watching into a shared, unforgettable moment.</p>
 
-            <!-- New Video: Crowd Atmosphere -->
+            <!-- Video: Crowd Atmosphere -->
             <div class="image-container video-container">
                 <div class="image-box">
                     <iframe
