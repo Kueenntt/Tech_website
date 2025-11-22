@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hoops</title>
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" />
 
     <style>
         body {
@@ -13,7 +13,7 @@
             margin: 0;
             padding: 20px;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -22,7 +22,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        
+
         h1 {
             color: #333;
             text-align: center;
@@ -30,55 +30,54 @@
 
         /* For headings */
         h2 {
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
             color: #444;
             border-bottom: 2px solid #ddd;
             padding-bottom: 5px;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
         h2:hover {
             color: #007acc;
             border-bottom-color: #007acc;
-        }
-        
-        /* For images */
-        .image-box img {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .image-box img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         p {
             line-height: 1.6;
             color: #555;
         }
-        
+
         .image-container {
             display: flex;
             justify-content: space-around;
             margin: 20px 0;
         }
-        
+
         .image-box {
             width: 45%;
             text-align: center;
         }
-        
+
+        .image-box img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .image-box img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
         .image-box p {
             margin-top: 10px;
             font-weight: bold;
         }
-        
+
         .section {
             margin-bottom: 30px;
         }
-        
+
         .highlight {
             background-color: #e6f7ff;
             padding: 10px;
@@ -98,30 +97,26 @@
         
         <div class="image-container">
             <div class="image-box">
-                <img src="https://i.pinimg.com/736x/c6/4c/90/c64c900fbbf552ca846c7d64733f24d2.jpg" alt="Leonard">
-                <p>Guitar</p>
+                <img src="https://i.pinimg.com/736x/c6/4c/90/c64c900fbbf552ca846c7d64733f24d2.jpg" alt="Leonard" />
+                <p>“Calm, Cool, Leonard”</p>
             </div>
             <div class="image-box">
-                <img src="https://i.pinimg.com/1200x/ba/17/62/ba176267e8ba0b99efa50698ef554304.jpg" alt="Drums">
-                <p>Drums</p>
+                <img src="https://i.pinimg.com/736x/a0/7e/15/a07e15fd5c55a450aca36ad73b030451.jpg" alt="Kobe" />
+                <p>“Mamba Mentality”</p>
             </div>
         </div>
-        
+
         <div class="section">
-            <h2>Learning Guitar</h2>
-            <p>I started by learning basic guitar chords like G, C, D, and Em. At first, it was difficult to press the strings properly, but with practice, my fingers got stronger.</p>
-            <div class="highlight">
-                <p>Tip: Practice chord transitions slowly at first, then gradually increase your speed.</p>
+            <h2>Positions</h2>
+        </div>
+
+        <div class="image-container">
+            <div class="image-box">
+                <img src="https://i.pinimg.com/1200x/72/c9/34/72c93429fd295187fdabce3cb2af65c5.jpg" alt="basketball positions" />
+                <p>“Point Maestro”</p>
+            </div>
+            <div class="image-box">
+                <img src="https://lh7-us.googleusercontent.com/6tCP_EpBRmilO6tsFOl7JDe1SzV-L1oAsHXaFSRyqUneH2lZA-zRRqPil_eYC4cNbiusVMaEl2X0hSLkgK-S0jBvOaIxXmOYcuwXEv_mBKNRWy86S2SPuzakn04Ym7-PM4i1uKdw5cLC9VD3jRAwoOuJ5UqZy2kO6JGJirabWoS3ooELaJNDjXE54eAb4b7y" alt="Baske" />
+                <p>“Court General”</p>
             </div>
         </div>
-        
-        <div class="section">
-            <h2>Learning Drums</h2>
-            <p>For drums, I began with simple rhythms and learned to coordinate my hands and feet. The basic rock beat was the first pattern I mastered.</p>
-            <div class="highlight">
-                <p>Tip: Count out loud while practicing to improve your timing.</p>
-            </div>
-        </div>
-        
-        <div class="section">
-           
