@@ -11,12 +11,13 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     html, body {
       height: 100%;
       font-family: Arial, sans-serif;
       background-color: black;
       color: white;
-      scroll-behavior: smooth;
+      overflow: hidden; /* prevent scrolling */
     }
 
     /* NAVIGATION FIXED ON RIGHT */
@@ -39,7 +40,6 @@
       transition: all 0.3s ease;
     }
 
-    /* HOVER EFFECT */
     nav a:hover {
       color: white;
       transform: translateX(-10px);
@@ -57,48 +57,53 @@
       width: 100%;
     }
 
-    /* SECTIONS */
-    section {
-      min-height: 100vh;
-      padding: 60px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start; /* content on left */
+    /* SECTIONS - only one visible at a time */
+    .section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 80px 60px;
       background-color: #111;
       opacity: 0;
-      transform: translateY(40px);
+      transform: scale(0.98);
       transition: all 0.7s ease;
+      overflow-y: auto;
     }
 
-    /* DISPLAY SECTIONS WHEN TARGETED */
-    section:target {
+    /* Show only the targeted section */
+    .section:target {
       opacity: 1;
-      transform: translateY(0);
+      transform: scale(1);
+      z-index: 1;
     }
 
-    /* HOME VISIBLE BY DEFAULT */
+    /* Show home by default */
     #home {
       opacity: 1;
-      transform: translateY(0);
-    }
-    body:has(:target:not(#home)) #home {
-      opacity: 0;
+      transform: scale(1);
+      z-index: 1;
     }
 
-    /* HEADINGS AND TEXT */
+    /* Hide home when another section is targeted */
+    body:has(:target:not(#home)) #home {
+      opacity: 0;
+      z-index: 0;
+    }
+
     h2 {
       font-size: 3rem;
-      margin-bottom: 20px;
       color: orange;
+      margin-bottom: 20px;
     }
+
     p {
       font-size: 1.2rem;
       line-height: 1.5;
       margin-bottom: 20px;
     }
 
-    /* IMAGES */
     img {
       max-width: 60%;
       border: 2px solid orange;
@@ -106,7 +111,6 @@
       margin-bottom: 20px;
     }
 
-    /* VIDEO BOX */
     iframe {
       width: 60%;
       height: 360px;
@@ -114,7 +118,6 @@
       border-radius: 10px;
       margin-bottom: 20px;
     }
-
   </style>
 </head>
 <body>
@@ -127,41 +130,41 @@
     <a href="#about">About Me</a>
   </nav>
 
-  <!-- HOME SECTION -->
-  <section id="home">
+  <!-- HOME -->
+  <div class="section" id="home">
     <h2>Home</h2>
-    <p>Welcome to my basketball website. Explore the game, the players, and my passion for basketball.</p>
+    <p>Welcome to my basketball website. Explore the game, players, and my passion.</p>
     <img src="IMAGE-LINK-HERE" alt="Basketball action">
     <p>Suggested video: Introduction to basketball</p>
     <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-  </section>
+  </div>
 
-  <!-- GAME SECTION -->
-  <section id="game">
+  <!-- GAME -->
+  <div class="section" id="game">
     <h2>The Game</h2>
-    <p>Basketball is a fast-paced sport where two teams compete to score by shooting the ball into a hoop.</p>
+    <p>Basketball is a fast-paced sport where teams compete to score in the hoop.</p>
     <img src="GAME-IMAGE-LINK-HERE" alt="Basketball court">
-    <p>Suggested video: How the rules of basketball work</p>
+    <p>Suggested video: Basketball rules explained</p>
     <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-  </section>
+  </div>
 
-  <!-- PLAYERS SECTION -->
-  <section id="players">
+  <!-- PLAYERS -->
+  <div class="section" id="players">
     <h2>Players</h2>
-    <p>Players train to improve their shooting, passing, dribbling, and defense. Dedication makes the sport exciting to watch.</p>
+    <p>Players practice shooting, dribbling, passing, and defense to excel in the game.</p>
     <img src="PLAYER-IMAGE-LINK-HERE" alt="Basketball players">
     <p>Suggested video: Player highlight reels</p>
     <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-  </section>
+  </div>
 
-  <!-- ABOUT ME SECTION -->
-  <section id="about">
+  <!-- ABOUT ME -->
+  <div class="section" id="about">
     <h2>About Me</h2>
-    <p>I'm a 9th grader who loves basketball and web design. I created this site using only HTML and CSS.</p>
+    <p>I'm a 9th grader who loves basketball and web design. I built this site using only HTML and CSS.</p>
     <img src="YOUR-IMAGE-LINK-HERE" alt="About me">
     <p>Suggested video: My favorite team or player</p>
     <iframe src="VIDEO-LINK-HERE" allowfullscreen></iframe>
-  </section>
+  </div>
 
 </body>
 </html>
