@@ -1,132 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /> <!-- Character encoding -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Mobile responsiveness -->
-  <title>My Basketball Website</title> <!-- Tab title -->
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Basketball Website</title>
   <style>
-    /* ===== BASIC RESET ===== */
     * {
-      margin: 0; /* Remove default margin */
-      padding: 0; /* Remove default padding */
-      box-sizing: border-box; /* Include padding/border in width/height */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     html, body {
-      height: 100%; /* Full page height */
-      font-family: Arial, sans-serif; /* Font style */
-      background-color: black; /* Page background */
-      color: white; /* Text color */
-      overflow: hidden; /* Prevent scrollbars */
-      scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      overflow: hidden;
+      scroll-behavior: smooth;
     }
 
-    /* ===== NAVIGATION MENU ===== */
     nav {
-      position: fixed; /* Stays in place */
-      top: 50%; /* Vertical center */
-      right: 20px; /* Space from right edge */
-      transform: translateY(-50%); /* Correct vertical centering */
-      display: flex; /* Flex layout */
-      flex-direction: column; /* Vertical links */
-      z-index: 10; /* On top of content */
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
     }
 
     nav a {
-      color: orange; /* Link color */
-      text-decoration: none; /* Remove underline */
-      margin: 12px 0; /* Vertical spacing */
-      font-size: 22px; /* Font size */
-      position: relative; /* For pseudo-elements */
-      transition: all 0.3s ease; /* Smooth hover effects */
+      color: orange;
+      text-decoration: none;
+      margin: 12px 0;
+      font-size: 22px;
+      position: relative;
+      transition: all 0.3s ease;
     }
 
     nav a:hover {
-      color: white; /* Hover color */
-      transform: translateX(-10px); /* Slight shift left */
+      color: white;
+      transform: translateX(-10px);
     }
 
     nav a::after {
-      content: ''; /* Empty pseudo-element */
-      display: block; /* Block element */
-      height: 2px; /* Thickness */
-      width: 0; /* Initial width */
-      background: orange; /* Color of underline effect */
-      transition: width 0.3s; /* Smooth width change */
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: orange;
+      transition: width 0.3s;
     }
 
     nav a:hover::after {
-      width: 100%; /* Expand underline on hover */
+      width: 100%;
     }
 
-    /* ===== SECTIONS ===== */
     .section {
-      position: absolute; /* Stack all sections */
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
+      width: 100%;
+      height: 100%;
       padding: 80px 60px;
-      padding-right: 220px; /* Leave space for nav */
-      background-color: #111; /* Dark background */
-      opacity: 0; /* Hidden initially */
-      transform: scale(0.98); /* Slight shrink for animation */
-      transition: all 0.7s ease; /* Smooth fade/scale */
-      overflow-y: auto; /* Scroll if content exceeds screen */
-      display: flex; /* Flex layout */
-      flex-direction: column; /* Stack children vertically */
-      justify-content: flex-start; /* Start from top */
-      align-items: flex-start; /* Align left */
+      padding-right: 220px;
+      background-color: #111;
+      opacity: 0;
+      transform: scale(0.98);
+      transition: all 0.7s ease;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
     }
 
     .section:target {
-      opacity: 1; /* Show targeted section */
-      transform: scale(1); /* Full size */
-      z-index: 1; /* On top */
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
     }
 
     #home {
-      opacity: 1; /* Show home by default */
+      opacity: 1;
       transform: scale(1);
       z-index: 1;
     }
 
     body:has(:target:not(#home)) #home {
-      opacity: 0; /* Hide home when another section is active */
+      opacity: 0;
       z-index: 0;
     }
 
-    /* ===== TEXT STYLING ===== */
     h2 {
-      font-size: 3rem; /* Large heading */
+      font-size: 3rem;
       color: orange;
-      margin-bottom: 20px; /* Space below heading */
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.2rem; /* Paragraph size */
-      line-height: 1.6; /* Space between lines */
-      margin-bottom: 20px; /* Space below paragraph */
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    /* ===== IMAGES AND VIDEOS (OPTION 1) ===== */
     img, iframe {
-      width: 500px;        /* Fixed width */
-      height: 280px;       /* Fixed height for consistency */
-      object-fit: cover;   /* Fill box, crop if necessary */
-      border: 2px solid orange; /* Border */
-      border-radius: 10px;       /* Rounded corners */
-      margin-bottom: 20px;       /* Space below element */
-      margin-left: 0;             /* Slightly left-aligned */
+      width: 500px;
+      height: 280px;
+      object-fit: cover;
+      border: 2px solid orange;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      margin-left: 0;
+      display: block;
+      box-sizing: border-box;
     }
-
   </style>
 </head>
-
 <body>
 
-  <!-- ===== NAVIGATION ===== -->
   <nav>
     <a href="#home">Home</a>
     <a href="#game">The Game</a>
@@ -134,7 +127,6 @@
     <a href="#about">About Me</a>
   </nav>
 
-  <!-- ===== HOME SECTION ===== -->
   <div class="section" id="home">
     <h2>Home</h2>
     <p>
@@ -152,7 +144,6 @@
     </p>
   </div>
 
-  <!-- ===== GAME SECTION ===== -->
   <div class="section" id="game">
     <h2>The Game</h2>
     <p>
@@ -168,7 +159,6 @@
     </p>
   </div>
 
-  <!-- ===== PLAYERS SECTION ===== -->
   <div class="section" id="players">
     <h2>Players</h2>
     <p>
@@ -184,7 +174,6 @@
     </p>
   </div>
 
-  <!-- ===== ABOUT ME SECTION ===== -->
   <div class="section" id="about">
     <h2>About Me</h2>
     <p>
