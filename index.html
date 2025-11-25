@@ -62,7 +62,7 @@
 
     /* ===== SECTIONS ===== */
     .section {
-      position: absolute; /* Stack all sections on top */
+      position: absolute; /* Stack all sections */
       top: 0;
       left: 0;
       width: 100%; /* Full width */
@@ -93,7 +93,7 @@
     }
 
     body:has(:target:not(#home)) #home {
-      opacity: 0; /* Hide home when other section active */
+      opacity: 0; /* Hide home when another section is active */
       z-index: 0;
     }
 
@@ -112,12 +112,13 @@
 
     /* ===== IMAGES AND VIDEOS ===== */
     img, iframe {
-      max-width: 40%; /* Smaller width for balance */
+      width: 500px; /* Fixed width for consistency */
+      max-width: 100%; /* Ensure it doesn’t overflow screen */
       height: auto; /* Maintain aspect ratio */
-      border: 2px solid orange; /* Border around media */
+      border: 2px solid orange; /* Border */
       border-radius: 10px; /* Rounded corners */
-      margin-bottom: 20px; /* Space below */
-      align-self: center; /* Center horizontally */
+      margin-bottom: 20px; /* Space below element */
+      margin-left: 0; /* Slightly left-aligned */
     }
 
   </style>
@@ -143,9 +144,12 @@
     </p>
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Steph_Curry_%2851915116957%29.jpg" alt="Basketball players dribbling court" />
     <p>
-      Basketball combines strategy, skill, and athleticism. This site shows videos and images that explain the game and inspire players of all levels.
+      Basketball combines strategy, skill, and athleticism. This site shows videos and images that explain the game and inspire players of all levels. Whether you’re new or experienced, you will discover techniques, history, and fun facts about basketball.
     </p>
     <iframe src="https://www.youtube.com/embed/aSqeWUuQSlM?si=odJtxF2pAJmzHICD" allowfullscreen></iframe>
+    <p>
+      Beyond the rules, basketball is a culture. It brings communities together, inspires creativity in play, and teaches the values of teamwork and discipline. Enjoy exploring the game with us!
+    </p>
   </div>
 
   <!-- ===== GAME SECTION ===== -->
@@ -159,6 +163,9 @@
       Teams use dribbling, passing, and shooting to outscore opponents. Defenders block shots, steal the ball, and try to control the game.
     </p>
     <iframe src="https://www.youtube.com/embed/V9iy6dXyK2Q" allowfullscreen></iframe>
+    <p>
+      The game requires stamina, quick thinking, and coordination. Players must anticipate moves, communicate effectively, and adjust strategies mid-game. Watching professional matches teaches valuable lessons about teamwork and tactics.
+    </p>
   </div>
 
   <!-- ===== PLAYERS SECTION ===== -->
@@ -169,9 +176,12 @@
     </p>
     <img src="https://pxhere.com/en/photo/167236" alt="Basketball players in action" />
     <p>
-      Training and teamwork are key. Players communicate, anticipate plays, and coordinate offense and defense.
+      Players train intensively, practicing dribbling, shooting, passing, and defense. Teamwork is crucial; predicting teammates’ movements and maintaining communication can decide a game.
     </p>
     <iframe src="https://www.youtube.com/embed/8Ldfl4jQu7g" allowfullscreen></iframe>
+    <p>
+      Beyond skills, basketball players develop leadership, discipline, and resilience. Their dedication and hard work serve as inspiration for anyone pursuing sports or personal goals.
+    </p>
   </div>
 
   <!-- ===== ABOUT ME SECTION ===== -->
@@ -182,9 +192,12 @@
     </p>
     <img src="https://publicdomainq.net/wp-content/uploads/2021/01/ball-public-domain-basketball.png" alt="Basketball illustration" />
     <p>
-      Basketball teaches teamwork, discipline, and dedication. I created this site to combine technology skills with my love of the sport.
+      Basketball teaches teamwork, discipline, and dedication. I created this site to combine technology skills with my love for the sport.
     </p>
     <iframe src="https://www.youtube.com/embed/UVuFH4b8L4I" allowfullscreen></iframe>
+    <p>
+      Through this website, I hope to inspire others to explore basketball, appreciate its culture, and embrace the values it teaches: perseverance, teamwork, and joy in playing.
+    </p>
   </div>
 
 </body>
