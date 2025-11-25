@@ -10,7 +10,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     html, body {
       height: 100%;
       font-family: Arial, sans-serif;
@@ -19,7 +18,6 @@
       overflow: hidden;
       scroll-behavior: smooth;
     }
-
     nav {
       position: fixed;
       top: 50%;
@@ -29,7 +27,6 @@
       flex-direction: column;
       z-index: 10;
     }
-
     nav a {
       color: orange;
       text-decoration: none;
@@ -38,12 +35,10 @@
       position: relative;
       transition: all 0.3s ease;
     }
-
     nav a:hover {
       color: white;
       transform: translateX(-10px);
     }
-
     nav a::after {
       content: '';
       display: block;
@@ -52,11 +47,9 @@
       background: orange;
       transition: width 0.3s;
     }
-
     nav a:hover::after {
       width: 100%;
     }
-
     .section {
       position: absolute;
       top: 0;
@@ -75,39 +68,35 @@
       justify-content: flex-start;
       align-items: flex-start;
     }
-
     .section:target {
       opacity: 1;
       transform: scale(1);
       z-index: 1;
     }
-
     #home {
       opacity: 1;
       transform: scale(1);
       z-index: 1;
     }
-
     body:has(:target:not(#home)) #home {
       opacity: 0;
       z-index: 0;
     }
-
     h2 {
       font-size: 3rem;
       color: orange;
       margin-bottom: 20px;
     }
-
     p {
       font-size: 1.2rem;
       line-height: 1.6;
       margin-bottom: 20px;
     }
 
+    /* ==== Equal Sizes for img and iframe ==== */
     img, iframe {
       width: 500px;
-      height: 280px;
+      aspect-ratio: 16 / 9;    /* Aspect ratio matches YouTube video */
       object-fit: cover;
       border: 2px solid orange;
       border-radius: 10px;
@@ -115,6 +104,7 @@
       margin-left: 0;
       display: block;
       box-sizing: border-box;
+      background: black;
     }
   </style>
 </head>
